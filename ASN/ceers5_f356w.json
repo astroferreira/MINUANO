@@ -1,0 +1,43 @@
+{
+    "asn_type": "None",
+    "asn_rule": "DMS_Level3_Base",
+    "version_id": null,
+    "code_version": "1.3.3",
+    "degraded_status": "No known degraded exposures in association.",
+    "program": "noprogram",
+    "constraints": "No constraints",
+    "asn_id": "a3001",
+    "target": "none",
+    "asn_pool": "none",
+    "products": [
+        {
+            "name": "ceers5_f356w",
+            "members": [
+                {
+                    "expname": "calibrated/jw01345005004_01101_00004_nrca5_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005004_01101_00004_nrcb5_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005005_01101_00005_nrca5_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005005_01101_00005_nrcb5_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005006_01101_00006_nrca5_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005006_01101_00006_nrcb5_skymatchstep.fits",
+                    "exptype": "science"
+                }
+            ]
+        }
+    ]
+}

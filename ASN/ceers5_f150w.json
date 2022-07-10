@@ -1,0 +1,115 @@
+{
+    "asn_type": "None",
+    "asn_rule": "DMS_Level3_Base",
+    "version_id": null,
+    "code_version": "1.3.3",
+    "degraded_status": "No known degraded exposures in association.",
+    "program": "noprogram",
+    "constraints": "No constraints",
+    "asn_id": "a3001",
+    "target": "none",
+    "asn_pool": "none",
+    "products": [
+        {
+            "name": "ceers5_f150w",
+            "members": [
+                {
+                    "expname": "calibrated/jw01345005004_01101_00004_nrca1_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005004_01101_00004_nrca2_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005004_01101_00004_nrca3_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005004_01101_00004_nrca4_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005004_01101_00004_nrcb1_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005004_01101_00004_nrcb2_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005004_01101_00004_nrcb3_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005004_01101_00004_nrcb4_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005005_01101_00005_nrca1_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005005_01101_00005_nrca2_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005005_01101_00005_nrca3_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005005_01101_00005_nrca4_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005005_01101_00005_nrcb1_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005005_01101_00005_nrcb2_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005005_01101_00005_nrcb3_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005005_01101_00005_nrcb4_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005006_01101_00006_nrca1_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005006_01101_00006_nrca2_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005006_01101_00006_nrca3_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005006_01101_00006_nrca4_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005006_01101_00006_nrcb1_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005006_01101_00006_nrcb2_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005006_01101_00006_nrcb3_skymatchstep.fits",
+                    "exptype": "science"
+                },
+                {
+                    "expname": "calibrated/jw01345005006_01101_00006_nrcb4_skymatchstep.fits",
+                    "exptype": "science"
+                }
+            ]
+        }
+    ]
+}
