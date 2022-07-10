@@ -71,3 +71,6 @@ NIRCAM BASIC REDUCTION
     if 1.3 is used, .asdf file needs to be updated to skip SkyMatchStep if there is no overlap
     between the cal files. In case of overlap, don't need to skip it but change skymethod to match+global
 
+## Acknowledgemets
+
+Micaela Bagley for the nice intro to the JWST pipeline based on the CEERS documentation
