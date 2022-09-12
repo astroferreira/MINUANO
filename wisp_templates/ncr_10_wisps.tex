@@ -1,0 +1,111 @@
+\documentclass[12pt]{article}
+%
+% Overrule the default header size and margins for even and odd pages
+%
+\usepackage[head=22pt,margin=70pt]{geometry}
+\usepackage{datetime}
+\newdateformat{mydate}{\THEYEAR~ \monthname[\THEMONTH] \THEDAY}
+%%%
+%%% Allow including postscript figures
+%
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+\Large
+{\centerline{\bf{NIRCam Wisp Templates}}}
+\large
+{\centerline{Christopher N. A. Willmer}}
+{\centerline{Steward Observatory, University of Arizona}}
+{\centerline{\today}}
+
+\section{Introduction}
+During the acquisition of NIRCam flat field images using the zodiacal light
+background, two types of stray light were noticed.
+One are the ``claws'', which are caused by light from very
+bright stars (\textsl{K} $\lesssim$ 2) that hits the NIRCam short
+wavelength channel spacers coming through the Aft Optics Subsystem. This can
+be mitigated by removing these stars from the optical path to the
+NIRCam spacers by small changes in the telescope orientation.
+``Wisps'' are another type of contamination due to stray light reflected by 
+the secondary mirror support system that  shows fairly stable behaviour though
+not necessarily present in all images with significant S/N. During the
+commissioning activities the IDT+IDS teams found out that this
+contamination can be subtracted out prior to the production of the
+calibrated images. 
+
+\section{Data and Procedure}
+The data used to construct the wisp templates come from
+the NIRCam Commissioning Activity \textsl{NRC-10} for proposal 1063
+(PI: B. Sunnquist). The Level 1a 
+images were copied from MAST and processed using the \textsl{NCDHAS}
+reduction code developed by the UofA instrument team (Misselt 2007;
+2022) using ground-based calibration files. The $rate$ files (in DN/s)
+produced by \textsl{NCDHAS} are identical to the level 2 products coming
+from STScI DMS stage 1. The reduction included the removal
+removing instrumental signatures (IPC, bias, linearity correction) and
+cosmic-ray removal.
+
+All $rate$ files were visually inspected to remove images containing
+claws. The remaining images were stacked (by filter
+and detector) using the outlier-resistant bi-weight average (Beers et
+al. 1990, AJ, 100,32) and  the median-sky image calculated from the division
+of the stacked image by the corresponding pixel-flat image.
+The last steps in preparing the wisp templates are calculating the
+average sky background counts of the median sky (again using the
+bi-weight estimator) and subtracting the latter from the median-sky image.
+
+\section{Results}
+
+Wisps are detected at a significant level for three detectors - A3 on
+module A and B3 and B4 on Module B and are most prominent in the
+F150W2 and F200W filters. Figures 1 and 2 show mosaics of all short
+wavelength detectors for three filters (F150W2 in Figure 1, F200W in
+Figure 2 and F210M in Figure 3). Two examples of wisp removal are shown
+in Figures 4 (for F150W2) and 5 for(F200W) where the left panel shows
+the rate file the right panel the wisp-subtracted image.
+
+\begin{figure}
+\includegraphics[scale=0.35]{/home/cnaw/Pictures/nrc-10/skyflat_F150W2.jpeg}
+  \caption{Example of wisps measured during JWST commissioning in
+    filter F150W2 in a mosaic with all short wave detectors. The top row
+    of detectors is [A2, A4, B3, B1], bottom row [A1, A3, B4, B2]. The
+    wisps are most intense in detectors A3, B3 and B4.}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[scale=0.35]{/home/cnaw/Pictures/nrc-10/skyflat_F200W.jpeg}
+  \caption{Example of wisps observed in the F200W filter; as in the
+    previous figure, the top row of detectors is [A2, A4, B3, B1] and the
+    bottom row [A1, A3, B4, B2]} 
+\end{figure}
+\begin{figure}
+  \includegraphics[scale=0.35]{/home/cnaw/Pictures/nrc-10/skyflat_F210M.jpeg}
+  \caption{Example of wisps observed in F210M, using the same detector
+  arrangement of the previous figures.}
+\end{figure}
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.53]{jw01063117002_02101_00010_nrcb4_wips.png}
+  \caption{Image before (left panel) and after subtracting
+    the wisp template. This is commissioning observation
+    jw01063117002\_02101\_00001\_nrcb4 using the F150W2 filter. In
+    both panels the scale and limits for both panels were locked to be
+    identical. The magenta points flag pixels presenting ``NaN''
+    values, which are not used in the data processing.}
+\end{figure}
+\begin{figure}
+\centering
+  \includegraphics[scale=0.55]{jw01063001003_02101_00001_nrcb4_wisp.png}
+  \caption{Image before (left panel) and after (right
+    panel) subtracting the wisp template. This is commissioning observation
+    jw01063001003\_02101\_00001 using the F200W filter. As in the
+    previous figure the scale and limits for both panels were locked to be
+    identical.} 
+\end{figure}
+%\maketitle
+%\thispagestyle{empty}
+\end{document}

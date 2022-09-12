@@ -9,7 +9,7 @@ NIRCAM BASIC REDUCTION
     export CRDS_PATH=<your-path-to-crds-cache>/crds_cache
     export CRDS_SERVER_URL=https://jwst-crds.stsci.edu
 
-    export CRDS_CONTEXT='jwst_0914.pmap'
+    export CRDS_CONTEXT='jwst_0942.pmap'
 
     double check if CRDS_CONTEXT is the latest here: https://jwst-crds.stsci.edu/ 
 
@@ -40,11 +40,12 @@ NIRCAM BASIC REDUCTION
         user    297m27.575s
         sys     67m7.145s
 
-## 1.2 OPTIONAL: remove 1/f noise stripping (by Micaela Bagley)
 
-    python remstriping.py --runall --apply_flat --mask_sources --seedim_directory uncals
+## 1.2 STAGE2: WISP Removal
 
-## 1.2 STAGE2: IMAGE Reduction 2
+    Run wisp_removal.py in wisp_templates/ but visually checking the SW bands.
+
+## 1.3 STAGE2: IMAGE Reduction 2
 
     time find calibrated/ -name '*rate.fits' | xargs -n1 -P24 -I {} strun STAGE2_params.asdf {}
 
@@ -52,16 +53,26 @@ NIRCAM BASIC REDUCTION
     user    95m26.210s
     sys     41m47.545s
 
-## 1.3 OPTIONAL: Custom Sky Subtraction
 
-   find skymatch/ -name '*.json' | xargs -n1 -P24 -I {} strun BGSUB.asdf {}
+## 1.3 STAGE2: 1/f Willott Removal
 
-    **if this is run, ASN files need to be adapted to use _skymatchstep files instead of *_cal.fits
-    quick replace in vim: :%s/_cal/_skymatchstep/g
+    find calibrated/ -name '*bg.fits' |  xargs -n1 -P24 -I {} python scripts/batch_1overf.py {}
+
+
+## 1.4 STAGE2: Flat Median Sky Subtraction
+
+    find calibrated/ -name '*cal.fits' | xargs -n1 -P24 -I {} python scripts/batch_bgsub_flat.py {}
+
+### 1.6 STAGE2: 2D BG Removal (agressive)
+
+    find calibrated/ -name '*1overf.fits' | xargs -n1 -P24 -I {} python scripts/remove_2Dbg.py {}
+
+## 1.7 STAGE2: Astrometric Alignment TWEAKWCS TO GAIA.
+
 
 ## 1.4 STAGE3: IMAGE Reduction 3 - Mosaics
 
-    strun STAGE3_params_vanilla_(sw|lw).asdf config_asn.json
+    strun STAGE3_params30mas.asdf config_asn.json
 
     Can also run in parallel for each filter, but beware of resource consumption:
         For ex: cat runSTAGE3 | xargs -n1 -P4 -I {} sh -c {}
@@ -70,7 +81,3 @@ NIRCAM BASIC REDUCTION
 
     if 1.3 is used, .asdf file needs to be updated to skip SkyMatchStep if there is no overlap
     between the cal files. In case of overlap, don't need to skip it but change skymethod to match+global
-
-## Acknowledgemets
-
-Micaela Bagley for the nice intro to the JWST pipeline based on the CEERS documentation
